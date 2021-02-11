@@ -5,7 +5,15 @@
  class Game {
  	constructor () {
  	this.missed = 0;
- 	this.phrases = [new Phrase("Shenanigans"), new Phrase("Cattywampus"), new Phrase("Bamboozle"), new Phrase("Skedaddle"), new Phrase("Gnarly")];
+ 	this.phrases = this.createPhrases();
  	this.activePhrase = null;
+ 	}
+	/**
+	* Selects random phrase from phrases property
+	* @return {Object} Phrase object chosen to be used
+	*/
+ 	createPhrases() {
+ 		const phraseArray = [new Phrase("Shenanigans"), new Phrase("Cattywampus"), new Phrase("Bamboozle"), new Phrase("Skedaddle"), new Phrase("Gnarly")];
+ 		return phraseArray;
  	}
 }
