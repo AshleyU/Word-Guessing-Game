@@ -6,10 +6,25 @@
  	constructor(phrase) {
  		this.phrase = phrase.toLowerCase();
  	}
- 	// Adds letter placeholders to the display when the game starts
+	/**
+	* Display phrase on game board
+	*/
  	addPhraseToDisplay() {
+ 		const ul = document.querySelector('#phrase ul');
+		const li = document.createElement('li');
 
- 	}
+		for (let i = 0; i < this.phrase.length; i++) {
+
+			if ( this.phrase[i] === ' ' ) {
+				li.className = "space";
+			} else {
+				li.className += "letter";
+				li.className += `hide letter ${this.phrase[i]}`;
+			}
+
+			ul.appendChild(li);
+		}	
+	}
  	// Checks to see if the letter selected by the player matches a letter in the phrase.
  	checkLetter() {
 
