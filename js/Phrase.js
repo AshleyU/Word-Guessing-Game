@@ -11,14 +11,13 @@
 	*/
  	addPhraseToDisplay() {
  		const ul = document.querySelector('#phrase ul');
-		const li = document.createElement('li');
 
 		for (let i = 0; i < this.phrase.length; i++) {
-
+			let li = document.createElement('li');
+			li.innerHTML = `${this.phrase[i]}`;
 			if ( this.phrase[i] === ' ' ) {
 				li.className = "space";
 			} else {
-				li.className += "letter";
 				li.className += `hide letter ${this.phrase[i]}`;
 			}
 
