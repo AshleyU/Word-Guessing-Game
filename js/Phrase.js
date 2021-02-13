@@ -24,11 +24,21 @@
 			ul.appendChild(li);
 		}	
 	}
- 	// Checks to see if the letter selected by the player matches a letter in the phrase.
- 	checkLetter() {
-
+ 	/**
+	* Checks if passed letter is in phrase
+	* @param (string) letter - Letter to check
+	*/
+ 	checkLetter(letter) {
+ 		if (this.phrase.includes(letter)) {
+ 			showMatchedLetter();
+ 		} else {
+ 			game.removeLife();
+ 		}
  	}
- 	// Reveals the letter(s) on the board that matches the player's selection
+ 	/**
+	* Displays passed letter on screen after a match is found
+	* @param (string) letter - Letter to display
+	*/
  	showMatchedLetter() {
 
  	}
