@@ -31,6 +31,7 @@
 	*/
  	startGame(){
  		const overlay = document.getElementById("overlay").style.visibility = 'hidden';
- 		this.activePhrase = this.getRandomPhrase().addPhraseToDisplay();
+ 		this.activePhrase = this.getRandomPhrase();
+ 		this.activePhrase.addPhraseToDisplay();
  	}
 }
