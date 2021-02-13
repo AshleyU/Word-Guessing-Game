@@ -39,7 +39,10 @@
 	* Displays passed letter on screen after a match is found
 	* @param (string) letter - Letter to display
 	*/
- 	showMatchedLetter() {
-
+ 	showMatchedLetter(letter) {
+ 		if (li.classList.contains('hide')){
+ 			li.classList.remove('hide');
+ 			li.classList.add('show');
+ 		}
  	}
  }
