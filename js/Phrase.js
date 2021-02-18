@@ -29,20 +29,20 @@
 	* @param (string) letter - Letter to check
 	*/
  	checkLetter(letter) {
- 		if (this.phrase.includes(letter)) {
- 			showMatchedLetter();
- 		} else {
- 			game.removeLife();
- 		}
+ 		return this.phrase.includes(letter);
  	}
  	/**
 	* Displays passed letter on screen after a match is found
 	* @param (string) letter - Letter to display
 	*/
  	showMatchedLetter(letter) {
- 		if (li.classList.contains('hide')){
- 			li.classList.remove('hide');
- 			li.classList.add('show');
+ 		let li = document.querySelector('#phrase ul').children;
+ 		for (let i = 0; i < li.length; i++) {
+ 			if(li[i].innerText == letter) {
+	 			li[i].classList.remove('hide');
+	 			li[i].classList.add('show');
+ 			}
  		}
+
  	}
  }
