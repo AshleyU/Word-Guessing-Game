@@ -14,7 +14,7 @@
 	* @return {Object} Phrase object chosen to be used
 	*/
  	createPhrases() {
- 		const phraseArray = [new Phrase("Its just a flesh wound"), new Phrase("Im just one flu away from my goal weight"), new Phrase("I believe you have my stapler"), new Phrase("Its not a man purse. It's called a satchel"), new Phrase("Sell crazy someplace else")];
+ 		const phraseArray = [new Phrase("Its just a flesh wound"), new Phrase("Im just one flu away from my goal weight"), new Phrase("I believe you have my stapler"), new Phrase("Its not a man purse Its called a satchel"), new Phrase("Sell crazy someplace else")];
  		return phraseArray;
  	}
 
@@ -34,4 +34,33 @@
  		this.activePhrase = this.getRandomPhrase();
  		this.activePhrase.addPhraseToDisplay();
  	}
+ 	/**
+	* Checks for winning move
+	* @return {boolean} True if game has been won, false if game wasn't
+	won
+	*/
+	checkForWin() {
+		let hideLi = document.getElementsByClassName('hide');
+		if( hideLi.length == 0 ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	* Increases the value of the missed property
+	* Removes a life from the scoreboard
+	* Checks if player has remaining lives and ends game if player is out
+	*/
+	removeLife() {
+
+	}
+	/**
+	* Displays game over message
+	* @param {boolean} gameWon - Whether or not the user won the game
+	*/
+	gameOver(gameWon) {
+
+	}
 }
