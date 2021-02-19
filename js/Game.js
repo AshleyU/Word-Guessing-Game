@@ -54,13 +54,30 @@
 	* Checks if player has remaining lives and ends game if player is out
 	*/
 	removeLife() {
+		// get all the li that has heart images
+		let liLives = document.querySelector('#scoreboard ol').children;
+		this.missed += 1;
+		// Loops through the li with heart images to find the one that needs to be changed
+		for (let i = 0; i < liLives.length; i++) {
+			// Selecting image of li
+			const heartImg = liLives[i].querySelector('img');
+			// if missed is less than 5 AND heartimg.src includes liveHeart.png then replaces image with lostHeart
+			if (this.missed < 5 && heartImg.src.includes("liveHeart.png")) {
+				heartImg.src = "images/lostHeart.png";
+				break;
 
+			} else if (this.missed >= 5){
+				// Replaces the last hear image with lostHeart image 
+				heartImg.src = "images/lostHeart.png";
+				this.gameOver();
+			}
+		}
 	}
 	/**
 	* Displays game over message
 	* @param {boolean} gameWon - Whether or not the user won the game
 	*/
-	gameOver(gameWon) {
+	gameOver() {
 
 	}
 }
