@@ -15,6 +15,7 @@ game = new Game();
 game.startGame();
 });
 
+//loops through the keyboard keys
 for(let i = 0; i < keys.length; i++){
 	//listens for button clicks on the UI keyboard
 	keys[i].addEventListener("click", function(e){
