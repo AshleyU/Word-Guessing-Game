@@ -30,7 +30,8 @@
 	* Begins game by selecting a random phrase and displaying it to user
 	*/
  	startGame(){
- 		const overlay = document.getElementById("overlay").style.visibility = 'hidden';
+ 		const overlay = document.getElementById("overlay");
+ 		overlay.style.visibility = 'hidden';
  		this.activePhrase = this.getRandomPhrase();
  		this.activePhrase.addPhraseToDisplay();
  	}
@@ -42,6 +43,7 @@
 	checkForWin() {
 		let hideLi = document.getElementsByClassName('hide');
 		if( hideLi.length == 0 ) {
+			this.gameOver(true);
 			return true;
 		} else {
 			return false;
@@ -67,9 +69,9 @@
 				break;
 
 			} else if (this.missed >= 5){
-				// Replaces the last hear image with lostHeart image 
+				// Replaces the last heart image with lostHeart image 
 				heartImg.src = "images/lostHeart.png";
-				this.gameOver();
+				this.gameOver(false);
 			}
 		}
 	}
@@ -77,7 +79,26 @@
 	* Displays game over message
 	* @param {boolean} gameWon - Whether or not the user won the game
 	*/
-	gameOver() {
+	gameOver(gameWon) {
+		//display start screen overlay
+		 const overlay = document.getElementById("overlay");
+		 overlay.style = 'block';
+
+		if (gameWon) {
+			//updates overlay h1 with win message
+			//replace overlay 'start' CSS class with 'win' CSS class
+			const h1 = document.getElementById("game-over-message");
+			h1.textContent = "You won! Great job."
+			overlay.classList.remove("start");
+			overlay.classList.add("win");
+		} else {
+			//updates overlay h1 with lose message
+			//replace overlay 'start' CSS class with 'lose' CSS class
+			const h1 = document.getElementById("game-over-message");
+			h1.textContent = "Sorry, you are out of tries."
+			overlay.classList.remove("start");
+			overlay.classList.add("lose");
+		}
 
 	}
 }
