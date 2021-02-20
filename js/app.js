@@ -21,8 +21,8 @@ for(let i = 0; i < keys.length; i++){
 	keys[i].addEventListener("click", function(e){
 		let target = e.target;
 			
-			if (target.tagName === "BUTTON") {
-				game.handleInteraction(target);
-			}
+		if (target.tagName === "BUTTON") {
+			game.handleInteraction(target);
+		}
 	});
 }

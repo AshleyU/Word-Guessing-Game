@@ -106,6 +106,17 @@
 	* @param (HTMLButtonElement) button - The clicked button element
 	*/
 	handleInteraction(button) {
-		console.log(button);
+		let clickedButton = button; 
+		let letter = button.innerText;
+		clickedButton.disabled = true;
+
+		if(!this.activePhrase.checkLetter(letter)) {
+			clickedButton.classList.add("wrong");
+			this.removeLife();
+		} else {
+			clickedButton.classList.add("chosen");
+			this.activePhrase.showMatchedLetter(letter);
+			this.checkForWin();
+		}
 	};
 }
