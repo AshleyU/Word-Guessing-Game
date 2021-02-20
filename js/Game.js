@@ -90,6 +90,7 @@
 			const h1 = document.getElementById("game-over-message");
 			h1.textContent = "You won! Great job."
 			overlay.classList.remove("start");
+			overlay.classList.remove("lose");
 			overlay.classList.add("win");
 		} else {
 			//updates overlay h1 with lose message
@@ -97,8 +98,10 @@
 			const h1 = document.getElementById("game-over-message");
 			h1.textContent = "Sorry, you are out of tries."
 			overlay.classList.remove("start");
+			overlay.classList.remove("win");
 			overlay.classList.add("lose");
 		}
+		this.reset();
 	}
 
 	/**
@@ -118,5 +121,33 @@
 			this.activePhrase.showMatchedLetter(letter);
 			this.checkForWin();
 		}
-	};
+	}
+	
+	/*
+	* Resets the gameboard between games
+	*/
+	reset() {
+		//Remove all li elements from Phrase ul
+		const ul = document.querySelector('#phrase ul');
+		ul.innerHTML = '';
+
+		//Enable all keyboard buttons
+		const keyboardButtons = document.getElementsByClassName("key");
+		//Update class to 'key'
+		for (let i = 0; i < keyboardButtons.length; i++) {
+			keyboardButtons[i].disabled = false;
+			keyboardButtons[i].classList.remove("wrong");
+			keyboardButtons[i].classList.remove("chosen");
+			keyboardButtons[i].classList.add("key");
+		}
+
+		//Reset heart images to liveHeart
+		const liLives = document.querySelector('#scoreboard ol').children;
+		for (let i = 0; i < liLives.length; i++) {
+			const heartImg = liLives[i].querySelector('img');
+			heartImg.src = "images/liveHeart.png";
+		}
+
+	}
+
 }
