@@ -14,7 +14,7 @@
 	* @return {Object} Phrase object chosen to be used
 	*/
  	createPhrases() {
- 		const phraseArray = [new Phrase("Its just a flesh wound"), new Phrase("Im just one flu away from my goal weight"), new Phrase("I believe you have my stapler"), new Phrase("Its not a man purse Its called a satchel"), new Phrase("Sell crazy someplace else")];
+ 		const phraseArray = [new Phrase("Its just a flesh wound"), new Phrase("Im just one flu away from my goal weight"), new Phrase("I believe you have my stapler"), new Phrase("Its not a man purse"), new Phrase("Sell crazy someplace else")];
  		return phraseArray;
  	}
 
